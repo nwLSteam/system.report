@@ -19,9 +19,43 @@ a {
 
 .loading {
 	display: block;
-	margin-bottom: 20px;
+	margin: 10px 0;
+	color: #AAAAAA;
+	user-select: none;
 }
 
 h2 {
 	font-weight: lighter;
+}
+
+.refresh {
+	color: #666666;
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	background: none;
+	border: none;
+
+	&::before {
+		display: inline-block;
+		content: "↻";
+		margin-right: 3px;
+	}
+
+	&:hover {
+		&::before {
+			animation: spin 0.2s linear infinite;
+			content: "↻";
+			margin-right: 3px;
+		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

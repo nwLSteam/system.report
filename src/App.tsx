@@ -89,6 +89,13 @@ function App() {
 	return (
 		<div className="App">
 			<h1>Is the Bungie API down?</h1>
+			{( alerts !== undefined || settings !== undefined )
+				&& <button type={"button"} className={"refresh"} onClick={() => {
+					setSettings( undefined );
+					setAlerts( undefined );
+				}}>Refresh</button>
+			}
+
 			{( alerts === undefined ) && <div className={"loading"}>Loading alerts...</div>}
 			{( settings === undefined ) && <div className={"loading"}>Loading systems...</div>}
 			{errors && errors.map( e => <Error message={e} /> )}
