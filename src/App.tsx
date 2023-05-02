@@ -91,6 +91,7 @@ function App() {
 			<h1>Is the Bungie API down?</h1>
 			{( alerts !== undefined || settings !== undefined )
 				&& <button type={"button"} className={"refresh"} onClick={() => {
+					setErrors( [] );
 					setSettings( undefined );
 					setAlerts( undefined );
 				}}>Refresh</button>
