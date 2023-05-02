@@ -1,0 +1,27 @@
+.App {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	color: white;
+}
+
+a {
+	color: inherit;
+}
+
+.outro {
+	margin: 30px auto;
+	color: #666666;
+	font-size: 0.8rem;
+}
+
+.loading {
+	display: block;
+	margin-bottom: 20px;
+}
+
+h2 {
+	font-weight: lighter;
+}
