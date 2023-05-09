@@ -5,6 +5,7 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./App.scss";
 import Alerts from "./components/Alerts";
 import Error from "./components/Error";
+import Refresh from "./components/Refresh";
 import Settings from "./components/Settings";
 
 async function $http( config: HttpClientConfig ) {
@@ -90,11 +91,12 @@ function App() {
 		<div className="App">
 			<h1>Is the Bungie API down?</h1>
 			{( alerts !== undefined || settings !== undefined )
-				&& <button type={"button"} className={"refresh"} onClick={() => {
-					setErrors( [] );
-					setSettings( undefined );
-					setAlerts( undefined );
-				}}>Refresh</button>
+				&& <Refresh last_refresh={new Date( Date.now() )}
+				            action={() => {
+					            setErrors( [] );
+					            setSettings( undefined );
+					            setAlerts( undefined );
+				            }} />
 			}
 
 			{( alerts === undefined ) && <div className={"loading"}>Loading alerts...</div>}
