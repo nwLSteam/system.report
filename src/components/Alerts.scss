@@ -1,0 +1,65 @@
+.alerts {
+	width: calc(100% - 30px);
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-bottom: 50px;
+}
+
+@mixin alert_look($color) {
+	$softer: transparentize($color, 0.7);
+
+	background: radial-gradient(circle at 100% 0%,
+			$color,
+			rgba($color, 0.6) 20%,
+			rgba($color, 0.1) 60%,
+			transparent 100%
+	),
+	radial-gradient(circle at 0% 100%,
+					$color,
+					rgba($color, 0.6) 20%,
+					rgba($color, 0.1) 60%,
+					transparent 100%
+	);
+
+	box-shadow: 0 0 20px transparentize($color, 0.7);
+}
+
+.alert {
+	border: 1px solid white;
+	padding: 20px;
+
+	&-- {
+		&0 {
+			@include alert_look(#333333);
+		}
+
+		&1 {
+			@include alert_look(darken(blue, 20%));
+		}
+
+		&2 {
+			@include alert_look(darken(#FFEC42, 40%));
+		}
+
+		&3 {
+			@include alert_look(darken(red, 20%));
+		}
+	}
+
+	&__ {
+		&heading {
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+
+		&message {
+			margin-bottom: 10px;
+		}
+
+		&footer {
+			font-size: 0.8em;
+		}
+	}
+}

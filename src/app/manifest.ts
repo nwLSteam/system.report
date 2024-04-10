@@ -1,0 +1,22 @@
+import { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+	return {
+		name: "System Report",
+		short_name: "System Report",
+		icons: [
+			{
+				src: "/favicons/android-chrome-192x192.png",
+				sizes: "192x192",
+				type: "image/png",
+			},
+			{
+				src: "/favicons/android-chrome-256x256.png",
+				sizes: "256x256",
+				type: "image/png",
+			},
+		],
+		theme_color: "#121212",
+		background_color: "#121212",
+	};
+}

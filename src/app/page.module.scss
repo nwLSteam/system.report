@@ -1,0 +1,21 @@
+.App {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+	min-height: 100vh;
+	color: white;
+}
+
+.outro {
+	font-size: 0.8rem;
+	margin: 30px auto;
+	color: #666666;
+}
+
+.loading {
+	display: block;
+	margin: 10px 0;
+	user-select: none;
+	color: #AAAAAA;
+}
