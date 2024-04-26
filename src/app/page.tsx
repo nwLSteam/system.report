@@ -9,23 +9,9 @@ import Alerts from "@components/Alerts";
 import Error from "@components/Error";
 import Refresh from "@components/Refresh";
 import Settings from "@components/Settings";
+import API from "@data/api";
 
 import s from "./page.module.scss";
-
-async function $http( config: HttpClientConfig ) {
-	let key: string;
-	if ( !process.env.NODE_ENV || process.env.NODE_ENV === "development" ) {
-		key = "e63836d14e1849a29b205bb62ef41337";
-	} else {
-		key = "dc059d717b2a43cdb8904a72c5268b29";
-	}
-
-	return await ( await fetch( config.url, {
-		headers: {
-			"X-API-Key": key,
-		},
-	} ) ).json();
-}
 
 function getSettings(
 	settings: SettingsType,
@@ -36,7 +22,7 @@ function getSettings(
 		return;
 	}
 
-	Core.getCommonSettings( $http ).then( response => {
+	Core.getCommonSettings( API.$http ).then( response => {
 		const success = [ 0, 1 ].includes( response.ErrorCode );
 
 		if ( success ) {
@@ -62,7 +48,7 @@ function getAlerts(
 		return;
 	}
 
-	Core.getGlobalAlerts( $http, {
+	Core.getGlobalAlerts( API.$http, {
 		includestreaming: true,
 	} ).then( response => {
 		const success = [ 0, 1 ].includes( response.ErrorCode );
@@ -97,7 +83,7 @@ export default function Home() {
 			<h1>Is the Bungie API down?</h1>
 			{( alerts !== undefined || settings !== undefined )
 				&& <Refresh last_refresh={new Date( Date.now() )}
-                            action={() => {
+				            action={() => {
 					            setErrors( [] );
 					            setSettings( undefined );
 					            setAlerts( undefined );

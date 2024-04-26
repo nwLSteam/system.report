@@ -1,47 +1,11 @@
+import { majorSystems } from "@data/systems";
 import { CoreSettingsConfiguration } from "bungie-api-ts/core";
 import React, { ReactElement } from "react";
 import "./Settings.scss";
 import SystemListElement, { SystemListElementType } from "./SystemListElement";
 
-const MAJOR_SYSTEMS: string[] = [
-	"Destiny2",
-	"D2Vendors",
-	"D2PublicMilestones",
-	"D2MilestoneContent",
-	"D2Milestones",
-	"D2Characters",
-	"D2Profiles",
-	"D2Items",
-	// "D2ReturnAvailablePlugs",
-	"D2ReadActions",
-	"D2SubmitReport",
-	"D2EquipItem",
-	"D2TransferItem",
-	"D2PullFromPostmaster",
-	"D2SetItemLockState",
-	"D2InsertPlugsFree",
-	"ScheduledFireteams",
-	"DestinyClanSearch",
-	"DestinyLinkedProfiles",
-	"ClaimSeasonPassReward",
-	"D2Rewards",
-	"ClanFireteams",
-	"DestinyClans",
-	"Clans",
-	"AccountCreation",
-	"SteamIdAuth",
-	"EpicIdAuth",
-	"PSNAuth",
-	"XuidAuth",
-	"Profiles",
-	"Careers",
-	"Content",
-	"Activities",
-	"Messages",
-];
-
 function is_major( name: string ) {
-	return MAJOR_SYSTEMS.includes( name );
+	return majorSystems.includes( name );
 }
 
 function Settings( props: { data: CoreSettingsConfiguration } ) {

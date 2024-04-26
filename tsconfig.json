@@ -27,7 +27,16 @@
 			],
 			"@components/*": [
 				"./src/components/*"
-			]
+			],
+			"@data/*": [
+				"./src/data/*"
+			],
+			"@contracts/*": [
+				"./src/contracts/*"
+			],
+			"@status/*": [
+				"./src/status/*"
+			],
 		}
 	},
 	"include": [
