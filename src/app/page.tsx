@@ -1,5 +1,6 @@
 "use client";
 
+import Historical from "@components/Historical";
 import { Core } from "bungie-api-ts";
 import { CoreSettingsConfiguration, GlobalAlert } from "bungie-api-ts/core";
 import { HttpClientConfig } from "bungie-api-ts/http";
@@ -89,6 +90,8 @@ export default function Home() {
 					            setAlerts( undefined );
 				            }} />
 			}
+
+			<Historical/>
 
 			{( alerts === undefined ) && <div className={s.loading}>Loading alerts...</div>}
 			{( settings === undefined ) && <div className={s.loading}>Loading systems...</div>}

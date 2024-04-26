@@ -1,0 +1,19 @@
+.root {
+	width: calc(100% - 30px);
+	max-width: 1000px;
+}
+
+.container {
+	display: grid;
+	grid-auto-flow: column;
+	gap: 2px;
+}
+
+.element {
+	height: 100px;
+}
+
+.unknown {
+	@extend .element;
+	background: #666666;
+}

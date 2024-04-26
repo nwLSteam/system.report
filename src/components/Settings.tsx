@@ -17,19 +17,19 @@ function Settings( props: { data: CoreSettingsConfiguration } ) {
 		return a.localeCompare( b );
 	} );
 
-	console.log( system_keys );
+	// console.log( system_keys );
 
 	for ( const system of system_keys ) {
 		let current = props.data.systems[system];
 
 		if ( current.enabled ) {
-			console.log( `${system} is up` );
+			// console.log( `${system} is up` );
 
 			enabled.push( <SystemListElement key={system}
 			                                 enabled={SystemListElementType.ENABLED}
 			                                 name={system} /> );
 		} else {
-			console.log( `${system} is down` );
+			// console.log( `${system} is down` );
 			if ( is_major( system ) ) {
 				disabled_major.push( <SystemListElement key={system}
 				                                        enabled={SystemListElementType.DISABLED_MAJOR}

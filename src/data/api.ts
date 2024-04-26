@@ -1,5 +1,6 @@
 import { HttpClientConfig } from "bungie-api-ts/http";
 
+
 const API = {
 	get key() {
 		if ( !process.env.NODE_ENV || process.env.NODE_ENV === "development" ) {
@@ -16,6 +17,9 @@ const API = {
 			},
 		} ) ).json();
 	},
+
+	// @ts-ignore
+	swrFetcher: ( ...args: any[] ) => fetch( ...args ).then( res => res.json() ),
 };
 
 export default API;
