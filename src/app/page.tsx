@@ -1,9 +1,8 @@
 "use client";
 
-import Historical from "@components/Historical";
+import Tweets from "@components/Tweets";
 import { Core } from "bungie-api-ts";
 import { CoreSettingsConfiguration, GlobalAlert } from "bungie-api-ts/core";
-import { HttpClientConfig } from "bungie-api-ts/http";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 import Alerts from "@components/Alerts";
@@ -91,13 +90,16 @@ export default function Home() {
 				            }} />
 			}
 
-			<Historical/>
+			{ /* <Historical /> */}
 
 			{( alerts === undefined ) && <div className={s.loading}>Loading alerts...</div>}
 			{( settings === undefined ) && <div className={s.loading}>Loading systems...</div>}
 			{errors && errors.map( e => <Error key={e} message={e} /> )}
 			{( alerts && Array.isArray( alerts ) && alerts.length > 0 ) && <Alerts alerts={alerts} />}
+			<h2>Latest tweets</h2>
+			<Tweets user={"BungieHelp"} />
 			{settings && <Settings data={settings} />}
+			<hr className={"divider"} />
 			<span className={s.outro}>Made by <a rel="noreferrer" href="https://nwl.gg" target="_blank">nwL</a>.</span>
 		</div>
 	);

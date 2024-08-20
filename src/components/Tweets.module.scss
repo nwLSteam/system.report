@@ -1,0 +1,42 @@
+.root {
+	width: calc(100% - 100px);
+	max-width: 500px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.block {
+	display: block;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	gap: 0.4rem;
+}
+
+.avatar {
+	width: auto;
+	height: 100%;
+}
+
+.avatarWrapper {
+	height: 2rem;
+}
+
+.date {
+	font-size: 0.7rem;
+}
+
+.body {
+	font-size: 0.9rem;
+	margin-top: 0.5rem;
+	white-space: pre-wrap;
+}
+
+.dots {
+	li button::before {
+		color: white !important;
+	}
+}
