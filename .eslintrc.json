@@ -2,7 +2,7 @@
 	"extends": "next/core-web-vitals",
 	"rules": {
 		"indent": [
-			"off",
+			"warn",
 			"tab",
 			{
 				"FunctionDeclaration": {

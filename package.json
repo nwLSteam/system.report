@@ -2,11 +2,13 @@
 	"name": "system.report-backend",
 	"version": "0.1.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"update:build": "ts-node src/scripts/update.ts"
 	},
 	"dependencies": {
 		"bungie-api-ts": "^4.21.0",
@@ -22,6 +24,7 @@
 		"eslint": "^8",
 		"eslint-config-next": "14.1.4",
 		"sass": "^1.57.1",
-		"typescript": "^5"
+		"typescript": "^5",
+		"ts-node": "^10.9.2"
 	}
 }

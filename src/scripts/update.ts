@@ -43,3 +43,5 @@ export const getStatusReport = async (): Promise<HistoricalStatusPoint> => {
 		systems,
 	};
 };
+
+getStatusReport().then( r => JSON.stringify( r ) ).then( console.log );
