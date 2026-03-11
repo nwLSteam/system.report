@@ -1,0 +1,83 @@
+.element {
+    display: inline-block;
+    padding: 5px 7px;
+    list-style: none;
+    cursor: pointer;
+    border: 1px solid #AAAAAA;
+}
+
+.enabled {
+    @extend .element;
+    opacity: 70%;
+    color: darkseagreen;
+}
+
+.disabled {
+    @extend .element;
+    opacity: 70%;
+    color: indianred;
+}
+
+.major {
+    @extend .element;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 100%;
+    color: rgb(200, 80, 80);
+}
+
+.overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.2);
+    inset: 0;
+}
+
+.content {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin-top: 6rem;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    outline: none;
+}
+
+.innerContent {
+    flex: 1;
+    padding: 1rem 1rem 2rem;
+    border-radius: 10px 10px 0 0;
+    background-color: #181818;
+}
+
+.body {
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.title {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.description {
+    margin-bottom: 0.5rem;
+    color: #ddd;
+}
+
+.json {
+    display: contents;
+
+    > * {
+        padding-block: 0.4rem 0.6rem;
+        background-color: #333333 !important;
+
+        *[role=button] {
+            display: none;
+        }
+    }
+}

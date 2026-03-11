@@ -1,7 +1,8 @@
-import { CoreSettingsConfiguration, type CoreSystem } from "bungie-api-ts/core";
+import { CoreSettingsConfiguration } from "bungie-api-ts/core";
 import { useMemo } from "react";
 import "./Settings.scss";
-import SystemListElement, { SystemListElementType } from "./SystemListElement";
+import type { CoreSystemMapping } from "../types";
+import SystemListElement from "./SystemListElement";
 
 const MAJOR_SYSTEMS = new Set<string>( [
     "Destiny2",
@@ -38,11 +39,6 @@ const MAJOR_SYSTEMS = new Set<string>( [
     "Messages",
 ] as const );
 
-interface CoreSystemMapping {
-    key: string,
-    system: CoreSystem
-}
-
 function Settings( props: { data: CoreSettingsConfiguration } ) {
     const { enabled, disabled, disabledMajor } = useMemo(
         () => Object
@@ -66,7 +62,7 @@ function Settings( props: { data: CoreSettingsConfiguration } ) {
                     disabledMajor: [] as CoreSystemMapping[],
                 },
             ),
-        [] );
+        [props.data.systems] );
 
     return (
         <div className={"settings wrapper"}>
@@ -78,8 +74,8 @@ function Settings( props: { data: CoreSettingsConfiguration } ) {
                             disabledMajor.map( e => (
                                 <SystemListElement
                                     key={e.key}
-                                    name={e.key}
-                                    enabled={SystemListElementType.DISABLED_MAJOR}
+                                    system={e}
+                                    major={true}
                                 />
                             ) )
                         }</ul>
@@ -106,8 +102,8 @@ function Settings( props: { data: CoreSettingsConfiguration } ) {
                         disabled.map( e => (
                             <SystemListElement
                                 key={e.key}
-                                name={e.key}
-                                enabled={SystemListElementType.DISABLED}
+                                system={e}
+                                major={false}
                             />
                         ) )
                     }</ul>
@@ -120,8 +116,8 @@ function Settings( props: { data: CoreSettingsConfiguration } ) {
                         enabled.map( e => (
                             <SystemListElement
                                 key={e.key}
-                                name={e.key}
-                                enabled={SystemListElementType.ENABLED}
+                                system={e}
+                                major={false}
                             />
                         ) )
                     }</ul>
